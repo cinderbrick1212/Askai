@@ -1,0 +1,285 @@
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #000;
+  border-bottom: 2px solid red;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: red;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-links a:hover {
+  color: red;
+}
+
+/* Login + WhatsApp */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.login-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: red;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.login-btn:hover {
+  background: #ff3333;
+}
+.whatsapp-btn {
+  color: #25D366;
+  font-size: 1.5rem;
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: linear-gradient(to right, #111, #000);
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+.btn-primary, .btn-secondary {
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary {
+  background: red;
+  color: #fff;
+}
+.btn-secondary {
+  border: 1px solid #fff;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #ff3333;
+}
+.btn-secondary:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Features */
+.features {
+  padding: 60px 20px;
+  text-align: center;
+}
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  background: #111;
+  padding: 20px;
+  border: 1px solid red;
+  border-radius: 12px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+.feature-icon {
+  font-size: 2rem;
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  border-top: 2px solid red;
+  text-align: center;
+  padding: 30px 20px;
+}
+.footer-content h3 {
+  font-size: 1.5rem;
+  color: red;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+}
+.footer-links a:hover {
+  color: red;
+}
+.socials a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+.socials a:hover {
+  color: red;
+}
+.email-link {
+  color: rgb(0, 204, 255);
+  font-weight: bold;
+}
+.email-link:hover {
+  color: #ff3333;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 15px;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hero */
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Features */
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Footer */
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+  .hero {
+    height: auto;
+    padding: 60px 15px;
+  }
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  .hero-text p {
+    font-size: 0.85rem;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .card {
+    width: 90%;
+  }
+}

@@ -1,0 +1,62 @@
+<%- include('../partials/headerprofile') %>
+
+<head>
+  <!-- Styles -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/diagnostic.css" />
+
+  <!-- Scripts -->
+</head>
+<body>
+
+  <div class="form-container">
+    <form action="/user/main-content" method="POST" class="diagnostic-form">
+      <h2>Quick Diagnostic Test</h2>
+
+      <div class="form-group">
+        <label for="studyPreference">How do you prefer to study?</label>
+        <select name="studyPreference" id="studyPreference" required>
+          <option value="">Select an option</option>
+          <option value="video">Video</option>
+          <option value="reading">Reading</option>
+          <option value="examples">Examples</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="examPreparation">Are you preparing for exams?</label>
+        <select name="examPreparation" id="examPreparation" required>
+          <option value="">Select an option</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quizPreference">Do you want a quiz after each topic or explanation first?</label>
+        <select name="quizPreference" id="quizPreference" required>
+          <option value="">Select an option</option>
+          <option value="quizAfterTopic">Quiz after each topic</option>
+          <option value="explanationFirst">Explanation first</option>
+        </select>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+    <section class="footer-section">
+        <%- include('../partials/footer') %>
+    </section>
+
+</body>
+</html>

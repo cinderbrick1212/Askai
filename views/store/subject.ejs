@@ -1,0 +1,165 @@
+<%- include('../partials/headerprofile') %>
+
+<head>
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/subjects.css" />
+
+  <!-- Title -->
+  <title><%= topicName %> | Ask AI</title>
+</head>
+
+<body>
+  <!-- Topic Heading -->
+  <div class="topics-elementor" id="selected-topic">
+    <%= topicName %>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+
+    <!-- Previous Questions -->
+    <div class="questions-section">
+      <h2>Previous Questions</h2>
+      <div class="question-box">
+        <p>What is the difference between AI and Machine Learning?</p>
+      </div>
+      <div class="question-box">
+        <p>How to solve quadratic equations easily?</p>
+      </div>
+      <div class="question-box">
+        <p>What is the significance of photosynthesis?</p>
+      </div>
+    </div>
+
+    <!-- Ask New Question -->
+    <div class="ask-section">
+      <h2>Ask Your Question</h2>
+      <div class="ask-box">
+        <input type="text" placeholder="Ask your query..." />
+        <button>Send</button>
+      </div>
+    </div>
+
+    <!-- Resources Section -->
+    <div class="resources-section">
+      <h2>Resources</h2>
+      <div class="resources-container">
+        <div class="resource-box" data-modal="notesModal">Notes</div>
+        <div class="resource-box" data-modal="sampleModal">Sample Papers</div>
+        <div class="resource-box" data-modal="testModal">Test Series</div>
+        <div class="resource-box" data-modal="booksModal">Best Books</div>
+        <div class="resource-box" data-modal="youtubeModal">YouTube Channels</div>
+      </div>
+    </div>
+  </div> <!-- /main-content -->
+
+  <!-- Modals -->
+  <div id="notesModal" class="modal">
+    <div class="modal-content">
+      <h3>Notes</h3>
+      <ul>
+        <li><a href="/pdfs/notes1.pdf" target="_blank">Notes 1</a></li>
+        <li><a href="/pdfs/notes2.pdf" target="_blank">Notes 2</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="sampleModal" class="modal">
+    <div class="modal-content">
+      <h3>Sample Papers</h3>
+      <ul>
+        <li><a href="/pdfs/sample1.pdf" target="_blank">Sample Paper 1</a></li>
+        <li><a href="/pdfs/sample2.pdf" target="_blank">Sample Paper 2</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="booksModal" class="modal">
+    <div class="modal-content">
+      <h3>Best Books</h3>
+      <ul>
+        <li>Book 1 by Author</li>
+        <li>Book 2 by Author</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="youtubeModal" class="modal">
+    <div class="modal-content">
+      <h3>YouTube Channels</h3>
+      <ul>
+        <li><a href="https://youtube.com/@channel1" target="_blank">Channel 1</a></li>
+        <li><a href="https://youtube.com/@channel2" target="_blank">Channel 2</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Chatbot Button -->
+  <section>
+    <div class="chatbot">
+      <i class="fas fa-robot" id="chatbot-toggle"></i>
+      <div class="chatbox" id="chatbox">
+        <div class="chatbox-header">Ask AI</div>
+        <div class="chatbox-messages">
+          <p>Hello! How can I help you today?</p>
+        </div>
+        <input type="text" placeholder="Type your message..." id="chat-input" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer-section">
+    <%- include('../partials/footer') %>
+  </section>
+
+  <!-- Scripts -->
+  <script>
+    // Chatbot toggle
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbox = document.getElementById('chatbox');
+    chatbotToggle.addEventListener('click', () => {
+      chatbox.style.display = chatbox.style.display === 'block' ? 'none' : 'block';
+    });
+
+const resourceBoxes = document.querySelectorAll('.resource-box');
+const modals = document.querySelectorAll('.modal');
+
+resourceBoxes.forEach(box => {
+  box.addEventListener('click', () => {
+    const modalId = box.getAttribute('data-modal');
+    const modal = document.getElementById(modalId);
+
+    // Close other modals
+    modals.forEach(m => {
+      if (m !== modal) {
+        m.classList.remove('show');
+        setTimeout(() => { m.style.display = 'none'; }, 300);
+      }
+    });
+
+    // Toggle clicked modal
+    if (modal.classList.contains('show')) {
+      modal.classList.remove('show');
+      setTimeout(() => { modal.style.display = 'none'; }, 300);
+    } else {
+      modal.style.display = 'block';
+      setTimeout(() => { modal.classList.add('show'); }, 20);
+    }
+  });
+});
+
+// Optional: close modal when clicking outside
+document.addEventListener('click', (e) => {
+  modals.forEach(modal => {
+    if (!modal.contains(e.target) && !e.target.classList.contains('resource-box')) {
+      modal.classList.remove('show');
+      setTimeout(() => { modal.style.display = 'none'; }, 300);
+    }
+  });
+});
+  </script>
+</body>
+</html>

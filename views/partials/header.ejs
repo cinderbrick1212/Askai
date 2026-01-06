@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/global-header.css" />
+    <link rel="stylesheet" href="/loginstyle.css" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo"><i class="fas fa-brain"></i> Ask AI</div>
+      <ul class="nav-links">
+        <li>
+          <a href="/"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="/about"><i class="fas fa-info-circle"></i> About Us</a>
+        </li>
+        <li>
+          <a href="/preference"><i class="fas fa-book"></i> Learn More</a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="login-btn"
+          ><i class="fas fa-user"></i> Login</a
+        >
+        <a
+          href="https://wa.me/911234567890"
+          class="whatsapp-btn"
+          target="_blank"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!---------------------------------------------- Login POPUP Starts From here------------------------------------------------->
+
+  <div id="overlay"></div>
+  <div class="login-verify" id="login-trigg">
+    <div class="login-texts">
+      Create a new account
+      <p class="log-line">
+        Don't have an account?
+        <span class="log-line-element signup-btn">Sign up</span>
+      </p>
+      <div class="login-container">
+        <button class="google-btn">
+          <i class="fab fa-google"></i>
+          <p class="login-text-for-all">Continue with Google</p>
+        </button>
+        <div class="divider">
+          <span>OR</span>
+        </div>
+        <div class="signup-text">Continue with your email</div>
+      </div>
+    </div>
+    <div class="signup-form-container">
+      <form action="/login" method="POST">
+        <div class="type-name">Email</div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email or Username"
+          required
+        />
+        <div class="type-name">Password</div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button class="login-btn-contain" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    const loginBtns = document.querySelectorAll(".login-btn");
+    const loginTrigg = document.getElementById("login-trigg");
+    const overlay = document.getElementById("overlay");
+    const signUpLink = document.querySelector(".signup-btn");
+    const continueInputs = document.querySelectorAll(
+      'input[name="email"], input[name="password"]'
+    );
+
+    // Open popup
+    function openPopup() {
+      loginTrigg.classList.add("active");
+      overlay.classList.add("active");
+      document.body.classList.add("no-scroll");
+    }
+
+    // Close popup
+    function closePopup() {
+      loginTrigg.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    }
+
+    // Show popup on "Login" click
+    loginBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        openPopup();
+      });
+    });
+
+    // Close popup when clicking outside
+    overlay.addEventListener("click", closePopup);
+
+    // Shake inputs on "Sign up" link click
+    if (signUpLink) {
+      signUpLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        continueInputs.forEach((input) =>
+          input.classList.add("highlight-shake")
+        );
+
+        setTimeout(() => {
+          continueInputs.forEach((input) =>
+            input.classList.remove("highlight-shake")
+          );
+        }, 1000);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    });
+  </script>
+
+  <!---------------------------------------------- Login POPUP Ends here------------------------------------------------->
+</html>

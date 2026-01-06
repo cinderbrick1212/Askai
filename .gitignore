@@ -1,0 +1,54 @@
+# .gitignore for Node/Express project
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.pid.lock
+
+# Build / coverage
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Environment files
+.env
+.env.*
+
+# Uploads / user files
+uploads/
+
+# IDEs / editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# SSL certs
+ssl/
+certs/
+
+# Misc
+*.local
+.sass-cache/
+
+# End of file

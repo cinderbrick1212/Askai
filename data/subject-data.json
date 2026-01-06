@@ -1,0 +1,37 @@
+[
+  {
+    "subject": "Applied Mathematics",
+    "date": "2025-09-10",
+    "duration": "45 min",
+    "score": "95%",
+    "status": "Excellent"
+  },
+  {
+    "subject": "Applied Physics",
+    "date": "2025-09-05",
+    "duration": "40 min",
+    "score": "88%",
+    "status": "Good"
+  },
+  {
+    "subject": "Applied Chemistry",
+    "date": "2025-09-01",
+    "duration": "50 min",
+    "score": "85%",
+    "status": "Good"
+  },  
+  {
+    "subject": "Electrical Science",
+    "date": "2025-09-05",
+    "duration": "40 min",
+    "score": "70%",
+    "statusbad": "Average"
+  },  
+  {
+    "subject": "Manufacturing Process",
+    "date": "2025-09-05",
+    "duration": "40 min",
+    "score": "91%",
+    "status": "Excellent"
+  }
+]

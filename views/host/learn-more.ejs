@@ -1,0 +1,125 @@
+<%- include('../partials/headerprofile') %>
+
+<head>
+  <!-- Styles -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/learn-more.css" />
+
+  <!-- Scripts -->
+</head>
+  <body>
+    
+
+    <!-- Left Panel -->
+    <div class="left-panel" id="left-panel">
+      <ul class="panel-content">
+        <p class="topic-head-elementor">Topics</p>
+        <li><a href="/topics/Applied Mathematics">Applied Mathematics</a></li>
+        <li><a href="/topics/Applied Physics">Applied Physics</a></li>
+        <li><a href="/topics/Engineering Graphics">Engineering Graphics</a></li>
+        <li><a href="/topics/Engineering Mechanics">Engineering Mechanics</a></li>
+        <li><a href="/topics/Electrical Science">Electrical Science</a></li>
+        <li><a href="/topics/Environmental Science">Environmental Science</a></li>
+        <li><a href="/topics/Human Values and Professional Ethics">Human Values and Professional Ethics</a></li>
+        <li><a href="/topics/Manufacturing Processes">Manufacturing Processes</a></li>
+        <li><a href="/topics/Programming in C">Programming in C</a></li>
+      </ul>
+    </div>
+
+    <!-- Hamburger toggle -->
+    <i class="fas fa-bars" id="panel-toggle"></i>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+      <!-- Previous Questions -->
+      <div class="questions-section">
+        <h2>Previous Questions</h2>
+        <div class="question-box">
+          <p>What is the difference between AI and Machine Learning?</p>
+        </div>
+        <div class="question-box">
+          <p>How to solve quadratic equations easily?</p>
+        </div>
+        <div class="question-box">
+          <p>What is the significance of photosynthesis?</p>
+        </div>
+      </div>
+
+      <!-- Ask New Question -->
+      <div class="ask-section">
+        <h2>Ask Your Question</h2>
+        <div class="ask-box">
+          <input type="text" placeholder="Ask your query..." />
+          <button>Send</button>
+        </div>
+      </div>
+
+      <!-- Resources Section -->
+      <div class="resources-section">
+        <h2>Resources</h2>
+        <div class="resources-container">
+          <div class="resource-box">Notes</div>
+          <div class="resource-box">Sample Papers</div>
+          <div class="resource-box">Test Series</div>
+          <div class="resource-box">Best Books</div>
+          <div class="resource-box">YouTube Channels</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Button -->
+    <section>
+      <div class="chatbot">
+        <i class="fas fa-robot" id="chatbot-toggle"></i>
+        <div class="chatbox" id="chatbox">
+          <div class="chatbox-header">Ask ai</div>
+          <div class="chatbox-messages">
+            <p>Hello! How can I help you today?</p>
+          </div>
+          <input
+            type="text"
+            placeholder="Type your message..."
+            id="chat-input"
+          />
+        </div>
+      </div>
+    </section>
+
+      <section class="footer-section">
+        <%- include('../partials/footer') %>
+    </section>
+<script>// Chatbot toggle
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbox = document.getElementById('chatbox');
+
+chatbotToggle.addEventListener('click', () => {
+    chatbox.style.display = chatbox.style.display === 'block' ? 'none' : 'block';
+});
+
+// Left panel toggle
+const panelToggle = document.getElementById('panel-toggle');
+const leftPanel = document.getElementById('left-panel');
+const mainContent = document.getElementById('main-content');
+
+panelToggle.addEventListener('click', () => {
+    leftPanel.classList.toggle('hide');
+    mainContent.classList.toggle('shifted');
+
+    // Move hamburger along panel when open
+    if(leftPanel.classList.contains('hide')){
+        panelToggle.style.left = '10px'; // stays visible
+    } else {
+        panelToggle.style.left = '260px'; // moves with panel
+    }
+});
+</script>
+</html>

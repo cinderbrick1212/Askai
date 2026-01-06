@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<head>
+  <!-- Styles -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="home-page.css" />
+
+  <!-- Scripts -->
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1><i class="fas fa-robot"></i> Welcome to Ask.ai</h1>
+      <p>Your AI-powered personal tutor for smarter learning.</p>
+      <a href="#features" class="btn-primary"
+        ><i class="fas fa-bolt"></i> Explore Features</a
+      >
+      <a href="/preference" class="btn-secondary"
+        ><i class="fas fa-book-open"></i> Learn More</a
+      >
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <h2><i class="fas fa-star"></i> Our Key Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <i class="fas fa-user-graduate feature-icon"></i>
+        <h3>Personalized Learning</h3>
+        <p>AI tailors lessons according to your pace and style.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-comments feature-icon"></i>
+        <h3>Instant Feedback</h3>
+        <p>Get real-time answers and corrections instantly.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-clock feature-icon"></i>
+        <h3>24/7 Support</h3>
+        <p>Learn anytime, anywhere with AI guidance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-section"><%- include('../partials/footer') %></section>
+</body>

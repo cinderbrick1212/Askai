@@ -1,0 +1,221 @@
+/** ---------------------------------------- Effects ---------------------------------------------------- **/
+
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes highlight {
+  0% { box-shadow: 0 0 0px rgba(255,0,0,0); }
+  50% { box-shadow: 0 0 15px rgba(255,0,0,0.7); }
+  100% { box-shadow: 0 0 0px rgba(255,0,0,0); }
+}
+
+    
+
+.login-verify {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  color: black;
+}
+
+/* When active → show it */
+.login-verify.active {
+  display: flex;
+}
+  
+    .login-verify.active {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(243, 243, 243);
+        padding: 32px 40px;
+        position: fixed; /* fixed instead of absolute so it stays in place when scrolling */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* centers horizontally & vertically */
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+        border-radius: 8px;
+    }
+
+
+    .login-texts{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .log-line,.log-line-element{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+    }
+
+
+    .log-line-element:hover{
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline blue;
+    }
+
+
+    .log-line{
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    
+
+
+    .google-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 500px;
+        justify-content: center;
+        background-color: white;
+        color: #555;
+        font-size: 25px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s ease;
+    }
+    
+
+    .google-btn i.fab.fa-google {
+        position: absolute;           /* take out of normal flow */
+        left: 16px;                  /* space from left edge */
+        font-size: 20px;             /* size of icon */
+    }
+
+
+    
+    .google-btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .google-btn:hover {
+        background-color: #f1f1f1;
+    }
+
+    
+    .login-text-for-all{
+        color: black;
+        font-size: 16px;
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #777;
+        font-size: 14px;
+        
+    }
+
+
+    .divider::before,.divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #ccc;
+    }       
+
+    .divider span {
+        margin: 0 10px;
+    }
+
+
+    .login-container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+
+
+    .signup-text{
+        font-size: 25px;
+    }
+
+
+    .signup-form-container{
+        margin-top: 30px;
+
+    }
+
+    .signup-form-container form{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        min-width: 500px;
+    }
+
+
+    .signup-form-container form input {
+        font-size: 16px;         /* increases input text size */
+        padding: 12px 15px;      /* increase padding for more height */
+        height: auto;            /* usually not needed, input grows with font size and  padding */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .highlight-shake {
+        animation: shake 0.4s ease, highlight 1s ease;
+    }
+
+
+    .login-btn-contain {
+        padding: 14px 24px;       /* vertical and horizontal padding */
+        font-size: 18px;          /* bigger text */
+        border-radius: 6px;       /* rounded corners */
+        background-color: #ff4d4f; /* bright button color */
+        color: white;             /* text color */
+        border: none;             /* no border */
+        cursor: pointer;          /* pointer on hover */
+        transition: background-color 0.3s ease;           
+    }
+
+    .login-btn-contain:hover{
+        background-color: red;  
+        box-shadow: 0 0 5px rgb(255, 0, 0);        
+    }
+
+
+    /**----------------------freeze-----------------------------**/
+    .no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
+
+
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); 
+        display: none;
+        z-index: 998; 
+    }
+
+    #overlay.active {
+        display: block;
+    }
+
+
+    #login-trigg {
+        position: fixed;
+        z-index: 999; 
+    }
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/global-header-profile.css" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo"><i class="fas fa-brain"></i> Ask AI</div>
+      <ul class="nav-links">
+        <li>
+          <a href="/"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="/about"><i class="fas fa-info-circle"></i> About Us</a>
+        </li>
+        <li>
+          <a href="/preference"><i class="fas fa-book"></i> Learn More</a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a
+          href="https://wa.me/911234567890"
+          class="whatsapp-btn"
+          target="_blank"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-container">
+          <div class="profile-circle" id="profile-btn">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="profile-dropdown" id="profile-dropdown">
+            <div class="profile-info">
+              <i class="fas fa-user-circle"></i>
+              <div>
+                <p class="student-name">Dummy Student</p>
+                <p class="student-email">dummystudent@gmail.com</p>
+              </div>
+            </div>
+            <hr />
+            <a href="/student-dashboard"
+              ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+            >
+            <a href="/settings"><i class="fas fa-cog"></i> Settings</a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const profileBtn = document.getElementById("profile-btn");
+      const profileDropdown = document.getElementById("profile-dropdown");
+
+      // Mobile menu toggle
+      toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Profile dropdown toggle
+      profileBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        profileDropdown.classList.toggle("show");
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !profileDropdown.contains(e.target) &&
+          !profileBtn.contains(e.target)
+        ) {
+          profileDropdown.classList.remove("show");
+        }
+      });
+    });
+  </script>
+</html>

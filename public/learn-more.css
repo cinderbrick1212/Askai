@@ -1,0 +1,294 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body */
+body {
+    display: flex;
+    flex-direction: column; /* ensures footer stays at bottom */
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #fff;
+}
+
+/* Left Panel Styling */
+.left-panel {
+  width: 250px;
+  background-color: #111;  /* dark sidebar */
+  padding: 20px;
+  min-height: 100vh;       /* full height */
+}
+
+.panel-content {
+  list-style: none;   /* removes bullets */
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+}
+
+.panel-content li {
+  margin: 12px 0;
+}
+
+.panel-content li a {
+  color: #fff;                /* white text */
+  text-decoration: none;      /* removes underline */
+  font-size: 1rem;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.panel-content li a:hover {
+  background-color: #e50914;  /* red highlight */
+  color: #fff;
+}
+
+/* Left Panel */
+.left-panel {
+    width: 250px;
+    background: #111;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 900;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.left-panel.hide {
+    transform: translateX(-250px);
+}
+
+.left-panel .panel-content {
+    margin-top: 50px; /* moves items downward */
+}
+
+.panel-content li {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+    cursor: pointer;
+}
+
+.topic-head-elementor {
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.4rem;
+    cursor: default;  /* 👈 forces normal arrow */
+    background-color: red;
+    border-radius: 5px;    
+}
+
+.topics-elementor {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Hamburger button */
+#panel-toggle {
+    position: fixed;
+    top: 20px;
+    left: 260px; /* visible outside panel */
+    font-size: 1.3rem;
+    background: #ff4d4f;
+    padding: 3px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+#panel-toggle.outside {
+    left: 10px; /* position when panel closed */
+}
+
+/* Wrapper for main content to push aside when panel opens */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.shifted {
+    margin-left: 0;
+}
+
+/* Resources Section */
+.resources-section {
+  margin: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.resources-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.resources-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.resource-box {
+  background-color: #222;          /* default dark */
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover Effect */
+.resource-box:hover {
+  background: linear-gradient(135deg, #e50914, #ff4d6d); /* smooth red-pink gradient */
+  transform: translateY(-5px);  /* little lift effect */
+  box-shadow: 0 6px 12px rgba(229, 9, 20, 0.5);
+}
+
+/* Sections */
+.questions-section, .ask-section, .resources-section {
+    margin-bottom: 30px;
+}
+.question-box {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: default;       /* 👈 arrow cursor */
+    user-select: none;     /* 👈 prevents text highlighting */    
+}
+
+.question-box:hover {
+    background-color: #313131;
+}
+
+.questions-section h2 {
+    text-align: center;  
+    margin-bottom: 10px;  
+}
+.ask-box {
+    display: flex;
+    gap: 10px;
+}
+.ask-box input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+.ask-box button {
+    padding: 10px 15px;
+    background: #ff4d4f;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.resources-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.resource-box {
+    background: #1a1a1a;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1 1 150px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0; /* ensures footer stays at bottom */
+    width: 100%;
+    z-index: 10;
+}
+
+/* Chatbot */
+.chatbot {
+    position: fixed;
+    bottom: 100px; /* 20px above footer (footer ~80px) */
+    right: 20px;
+    z-index: 1001;
+}
+
+#chatbot-toggle {
+    font-size: 2rem;
+    background: #ff4d4f;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.chatbox {
+    display: none;
+    width: 300px;
+    background: #111;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.chatbox-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.chatbox-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chatbox input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .left-panel {
+        transform: translateX(-250px);
+    }
+    .left-panel.show {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .main-content.shifted {
+        margin-left: 250px;
+    }
+    .resources-container {
+        flex-direction: column;
+    }
+}

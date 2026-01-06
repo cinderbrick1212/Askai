@@ -1,0 +1,276 @@
+{
+  "focusTopics": [
+  {
+    "name": "Vector Calculus",
+    "subject": "Applied Mathematics",
+    "accuracyRate": 60,
+    "wrong": 4,
+    "total": 10,
+    "priority": "High"
+  },
+  {
+    "name": "Differential Equations",
+    "subject": "Applied Mathematics",
+    "accuracyRate": 75,
+    "wrong": 2,
+    "total": 8,
+    "priority": "Medium"
+  },
+  {
+    "name": "Laplace Transforms",
+    "subject": "Applied Mathematics",
+    "accuracyRate": 100,
+    "wrong": 0,
+    "total": 5,
+    "priority": "Low"
+  },
+  {
+    "name": "Kinematics of Particles",
+    "subject": "Applied Physics",
+    "accuracyRate": 65,
+    "wrong": 3,
+    "total": 9,
+    "priority": "High"
+  },
+  {
+    "name": "Electrostatics",
+    "subject": "Applied Physics",
+    "accuracyRate": 82,
+    "wrong": 2,
+    "total": 11,
+    "priority": "Medium"
+  },
+  {
+    "name": "Waves & Oscillations",
+    "subject": "Applied Physics",
+    "accuracyRate": 95,
+    "wrong": 1,
+    "total": 20,
+    "priority": "Low"
+  },
+  {
+    "name": "Organic Nomenclature",
+    "subject": "Applied Chemistry",
+    "accuracyRate": 55,
+    "wrong": 5,
+    "total": 11,
+    "priority": "High"
+  },
+  {
+    "name": "Thermodynamics (Chemistry)",
+    "subject": "Applied Chemistry",
+    "accuracyRate": 72,
+    "wrong": 2,
+    "total": 7,
+    "priority": "Medium"
+  },
+  {
+    "name": "Chemical Bonding",
+    "subject": "Applied Chemistry",
+    "accuracyRate": 100,
+    "wrong": 0,
+    "total": 6,
+    "priority": "Low"
+  },
+  {
+    "name": "AC Circuits",
+    "subject": "Electrical Science",
+    "accuracyRate": 68,
+    "wrong": 3,
+    "total": 9,
+    "priority": "High"
+  },
+  {
+    "name": "Magnetism",
+    "subject": "Electrical Science",
+    "accuracyRate": 77,
+    "wrong": 2,
+    "total": 9,
+    "priority": "Medium"
+  },
+  {
+    "name": "Transformers",
+    "subject": "Electrical Science",
+    "accuracyRate": 92,
+    "wrong": 1,
+    "total": 13,
+    "priority": "Low"
+  },
+  {
+    "name": "Casting Processes",
+    "subject": "Manufacturing Process",
+    "accuracyRate": 58,
+    "wrong": 4,
+    "total": 9,
+    "priority": "High"
+  },
+  {
+    "name": "Welding Techniques",
+    "subject": "Manufacturing Process",
+    "accuracyRate": 80,
+    "wrong": 2,
+    "total": 10,
+    "priority": "Medium"
+  },
+  {
+    "name": "Metal Forming",
+    "subject": "Manufacturing Process",
+    "accuracyRate": 96,
+    "wrong": 1,
+    "total": 25,
+    "priority": "Low"
+  }
+],
+  "wrongQuestions": [
+    {
+      "subject": "Applied Mathematics-I",
+      "date": "2024-09-14",
+      "question": "Find the derivative of y = ln(x² + 1).",
+      "yourAnswer": "dy/dx = 2x",
+      "correctAnswer": "dy/dx = (2x) / (x² + 1)",
+      "explanation": "Use chain rule: derivative of ln(u) = 1/u * du/dx, here u = x² + 1.",
+      "topic": "Differentiation",
+      "status": "Needs Review"
+    },
+    {
+      "subject": "Applied Mathematics-I",
+      "date": "2024-09-14",
+      "question": "Evaluate the integral ∫ cos²x dx.",
+      "yourAnswer": "∫ cos²x dx = (1/2)x",
+      "correctAnswer": "∫ cos²x dx = (x/2) + (sin(2x)/4) + C",
+      "explanation": "Use identity cos²x = (1 + cos2x)/2 and integrate term by term.",
+      "topic": "Integral Calculus",
+      "status": "Needs Review"
+    },
+    {
+      "subject": "Applied Mathematics-I",
+      "date": "2024-09-14",
+      "question": "Solve the differential equation dy/dx = 3y.",
+      "yourAnswer": "y = 3x",
+      "correctAnswer": "y = Ce^(3x)",
+      "explanation": "Separate variables: dy/y = 3 dx, integrate: ln y = 3x + C → y = Ce^(3x).",
+      "topic": "Differential Equations",
+      "status": "Needs Review"
+    },
+    {
+      "subject": "Applied Physics-I",
+      "date": "2024-09-14",
+      "question": "What is the speed of light in vacuum?",
+      "yourAnswer": "3 x 10⁸ m/s",
+      "correctAnswer": "3 x 10⁸ m/s",
+      "explanation": "By definition, c = 299,792,458 m/s, approximated as 3 x 10⁸ m/s.",
+      "topic": "Fundamentals",
+      "status": "Understood"
+    },
+    {
+      "subject": "Applied Physics-I",
+      "date": "2024-09-14",
+      "question": "State Newton's second law of motion.",
+      "yourAnswer": "Force = Mass x Acceleration",
+      "correctAnswer": "Force = Rate of change of momentum, i.e. F = ma for constant mass.",
+      "explanation": "The general law defines force as dp/dt. For constant mass, reduces to F = ma.",
+      "topic": "Mechanics",
+      "status": "Understood"
+    },
+    {
+      "subject": "Applied Physics-I",
+      "date": "2024-09-14",
+      "question": "Calculate kinetic energy of a 2 kg body moving at 10 m/s.",
+      "yourAnswer": "100 J",
+      "correctAnswer": "100 J",
+      "explanation": "K.E. = (1/2)mv² = 0.5 x 2 x 100 = 100 J.",
+      "topic": "Kinetic Energy",
+      "status": "Understood"
+    },
+    {
+      "subject": "Applied Chemistry",
+      "date": "2024-09-14",
+      "question": "What is the pH of a 0.001 M HCl solution?",
+      "yourAnswer": "pH = 2",
+      "correctAnswer": "pH = 3",
+      "explanation": "pH = -log[H⁺] = -log(0.001) = 3.",
+      "topic": "Acid-Base Chemistry",
+      "status": "Needs Review"
+    },
+    {
+      "subject": "Applied Chemistry",
+      "date": "2024-09-14",
+      "question": "State Avogadro's Law.",
+      "yourAnswer": "Equal volumes of gases contain equal number of molecules under same T and P.",
+      "correctAnswer": "Equal volumes of gases contain equal number of molecules at constant temperature and pressure.",
+      "explanation": "Law relates gas volume to number of molecules under same conditions of T and P.",
+      "topic": "Gas Laws",
+      "status": "Understood"
+    },
+    {
+      "subject": "Applied Chemistry",
+      "date": "2024-09-14",
+      "question": "What is the oxidation state of Cr in K₂Cr₂O₇?",
+      "yourAnswer": "+6",
+      "correctAnswer": "+6",
+      "explanation": "Let x be oxidation state of Cr: 2(+1) + 2x + 7(-2) = 0 → x = +6.",
+      "topic": "Redox Chemistry",
+      "status": "Understood"
+    },
+    {
+      "subject": "Electrical Science",
+      "date": "2024-09-14",
+      "question": "A 10 Ω resistor is connected across 20 V. Find the current.",
+      "yourAnswer": "2 A",
+      "correctAnswer": "2 A",
+      "explanation": "Ohm's Law: I = V/R = 20/10 = 2 A.",
+      "topic": "Ohm's Law",
+      "status": "Understood"
+    },
+    {
+      "subject": "Electrical Science",
+      "date": "2024-09-14",
+      "question": "If frequency = 60 Hz, find time period.",
+      "yourAnswer": "0.0167 s",
+      "correctAnswer": "0.0167 s",
+      "explanation": "T = 1/f = 1/60 ≈ 0.0167 s.",
+      "topic": "AC Basics",
+      "status": "Understood"
+    },
+    {
+      "subject": "Electrical Science",
+      "date": "2024-09-14",
+      "question": "Define inductive reactance and calculate XL for L=0.1 H, f=50 Hz.",
+      "yourAnswer": "31.4 Ω",
+      "correctAnswer": "31.4 Ω",
+      "explanation": "XL = 2πfL = 2 x 3.14 x 50 x 0.1 = 31.4 Ω.",
+      "topic": "Reactance",
+      "status": "Understood"
+    },
+    {
+      "subject": "Manufacturing Process",
+      "date": "2024-09-14",
+      "question": "Name one advantage of forging over casting.",
+      "yourAnswer": "Forged parts are stronger.",
+      "correctAnswer": "Forged parts are stronger due to grain flow and reduced porosity.",
+      "explanation": "Forging improves strength and toughness, unlike casting which may have defects.",
+      "topic": "Forging",
+      "status": "Understood"
+    },
+    {
+      "subject": "Manufacturing Process",
+      "date": "2024-09-14",
+      "question": "Which process uses a pattern to create molds?",
+      "yourAnswer": "Casting",
+      "correctAnswer": "Casting",
+      "explanation": "Patterns are used to form the mold cavity in casting.",
+      "topic": "Casting",
+      "status": "Understood"
+    },
+    {
+      "subject": "Manufacturing Process",
+      "date": "2024-09-14",
+      "question": "What is gas welding flame composed of?",
+      "yourAnswer": "Hydrogen and Oxygen",
+      "correctAnswer": "Acetylene and Oxygen",
+      "explanation": "The oxy-acetylene flame is most common in gas welding, not hydrogen.",
+      "topic": "Welding",
+      "status": "Needs Review"
+    }
+  ]
+}

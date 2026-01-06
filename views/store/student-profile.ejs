@@ -1,0 +1,287 @@
+<%- include('../partials/headerprofile') %>
+
+<head>
+  <!-- Styles -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/student-profile.css" />
+
+  <!-- Scripts -->
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Profile Section -->
+    <header class="profile-card">
+      <div class="profile-left">
+        <img src="/images/profile.png" alt="Profile" class="avatar">
+        <div>
+          <h2>Dummy Student</h2>
+          <p>Computer Science Engineering · Class of 2025</p>
+          <p><span class="badge">GPA: 5.9</span> | Semester 1</p>
+        </div>
+      </div>
+      <div class="profile-right">
+        <span class="trophy"><i class="fa-solid fa-trophy"></i> Dean's List</span>
+        <p>Student ID: CS2025-001</p>
+      </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-grid">
+    <div class="stat-card">
+      <div class="svg-img-element">
+        <h3>Overall Accuracy</h3>
+        <span class="svg-element-color"><i class="fas fa-bullseye"></i></span>
+      </div>
+        <p class="value"><span id="accuracy-value">91.2</span>% <span class="green">+2.3%</span></p>
+        <p class="sub">Above class avg of 87.5%</p>
+        <div class="progress-bar"><div class="progress-fill" id="accuracy-fill"></div></div>
+    </div>
+
+    <div class="stat-card">
+      <div class="svg-img-element">
+        <h3>Performance Score</h3>
+        <span class="svg-element-color"><i class="fas fa-chart-line"></i></span>
+      </div>
+        <p class="value"><span id="performance-value">895</span> <span class="green">+15</span></p>
+        <p class="sub">Rank: 12th out of 250</p>
+        <div class="progress-bar"><div class="progress-fill" id="performance-fill"></div></div>
+    </div>
+
+    <div class="stat-card">
+      <div class="svg-img-element">
+        <h3>Tests Completed</h3>
+        <span class="svg-element-color"><i class="fas fa-book-open"></i></span>
+      </div>
+        <p class="value"><span id="tests-value">24</span></p>
+        <p class="sub">6 tests remaining</p>
+        <div class="progress-bar"><div class="progress-fill" id="tests-fill"></div></div>
+    </div>
+
+    <div class="stat-card">
+      <div class="svg-img-element">
+        <h3>Study Time</h3>
+        <span class="svg-element-color"><i class="fas fa-clock"></i></span>
+      </div>        
+        <p class="value"><span id="study-value">20</span>h</p>
+        <p class="sub">Goal: 30h per week</p>
+        <div class="progress-bar"><div class="progress-fill" id="study-fill"></div></div>
+    </div>
+    </section>
+
+    <!-- Performance Charts -->
+    <section class="charts-grid">
+      <div class="chart-card">
+        <h3>Performance Trend</h3>
+        <canvas id="performanceTrend"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Subject Performance</h3>
+        <canvas id="subjectPerformance"></canvas>
+      </div>
+    </section>
+
+    <!-- Recent Tests -->
+    <section class="recent-tests">
+      <div class="element-container-tests">
+        <span class="svg-element-color"><i class="fas fa-medal"></i></span>
+        <h3>Recent Test Results</h3>
+      </div>
+    <% tests.forEach(test => { %>
+        <div class="test-card">
+        <div class="left-info">
+            <span class="subject"><%= test.subject %></span>
+            <span class="date"><%= test.date %> • <%= test.duration %></span>
+        </div>
+        <div class="right-info">
+            <% if (test.status) { %>
+                <span class="status"><%= test.status %></span>
+            <% } else if (test.statusbad) { %>
+                <span class="status-bad"><%= test.statusbad %></span>
+            <% } %>
+            <div class="score"><%= test.score %></div>
+        </div>
+        </div>
+    <% }) %>
+    </section>
+
+    <!-- Recent Tests -->
+<section class="ques-sol">
+  <div class="element-container-tests">
+    <span class="svg-element-exclamation"><i class="fas fa-exclamation-circle"></i></span>
+    <h3 class="heading">Question Review & Solutions</h3>
+  </div>
+  <div class="sub-heading">Analyze your incorrect answers and learn from detailed explanations</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('wrong')">Wrong Questions</button>
+    <button class="tab-btn" onclick="showTab('focus')">Focus Topics</button>
+  </div>
+
+  <!-- Wrong Questions -->
+  <div id="wrong" class="tab-content active">
+    <% topics.wrongQuestions.forEach(q => { %>
+      <div class="wrong-card">
+        <h4><%= q.subject %> 
+          <span class="status-tag <%= q.status.toLowerCase().replace(' ', '-') %>">
+            <%= q.status %>
+          </span>
+        </h4>
+        <p class="date"><%= q.date %></p>
+        <p><strong>Question:</strong> <%= q.question %></p>
+        <p class="wrong"><strong>Your Answer:</strong> <%= q.yourAnswer %></p>
+        <p class="correct"><strong>Correct Answer:</strong> <%= q.correctAnswer %></p>
+        <p class="explanation"><%= q.explanation %></p>
+        <span class="topic-tag"><%= q.topic %></span>
+      </div>
+    <% }) %>
+  </div>
+
+  <!-- Focus Topics -->
+  <div id="focus" class="tab-content">
+    <% topics.focusTopics.forEach(t => { %>
+      <div class="focus-card">
+        <h4><%= t.name %>
+          <span class="priority <%= t.priority.toLowerCase() %>"><%= t.priority %> Priority</span>
+        </h4>
+        <p><em><%= t.subject %></em></p>
+        <p>Accuracy Rate: <%= t.accuracyRate %>% (<%= t.total - t.wrong %> correct out of <%= t.total %>)</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:<%= t.accuracyRate %>%"></div></div>
+        <% if (t.accuracyRate < 70) { %>
+          <p class="recommend">⚠ Recommendation: Spend extra time reviewing this topic. Consider additional practice problems.</p>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+  </div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Line Chart - Performance Trend
+  new Chart(document.getElementById('performanceTrend'), {
+    type: 'line',
+    data: {
+      labels: ["Jan","Feb","Mar","Apr","May","Jun"],
+      datasets: [{
+        label: 'Scores',
+        data: [85,87,89,92,88,95],
+        borderColor: "#6c63ff",
+        backgroundColor: "#6c63ff",
+        fill: false,
+        tension: 0.3,
+        pointBackgroundColor: "#6c63ff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "#6c63ff",
+        pointRadius: 5,
+        pointHoverRadius: 7
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        tooltip: {
+          backgroundColor: "#1a1d2e",   // tooltip bg
+          titleColor: "#fff",           // "Math"
+          bodyColor: "#ccc",            // "Score: 98"
+          borderColor: "#6c63ff",
+          borderWidth: 1,
+          cornerRadius: 8,
+          padding: 12,   
+          titleFont: {
+            size: 16,
+            weight: "bold"
+        },
+        bodyFont: {
+            size: 14   
+        },
+          callbacks: {
+            label: function(context) {
+              return context.label + ": " + context.raw + "%";
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // Bar Chart - Subject Performance
+  new Chart(document.getElementById('subjectPerformance'), {
+    type: 'bar',
+    data: {
+      labels: ["App.Math","App.Phy","App.Chem","Elec.Science"],
+      datasets: [{
+        label: 'Scores',
+        data: [98,88,92,85],
+        backgroundColor: "#8a5cf1",
+        hoverBackgroundColor: "#5a2fcf" // custom hover color
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        tooltip: {
+          backgroundColor: "#1a1d2e",
+          titleColor: "#fff",
+          bodyColor: "#ccc",
+          borderColor: "#8a5cf1",
+          borderWidth: 1,
+          cornerRadius: 8,
+          padding: 12,   
+          titleFont: {
+            size: 16,
+            weight: "bold"
+        },
+        bodyFont: {
+            size: 14   
+        },          
+          callbacks: {
+            label: function(context) {
+              return context.label + ": " + context.raw + "%";
+            }
+          }
+        }
+      }
+    }
+  });
+  
+  let accuracy = parseFloat(document.getElementById("accuracy-value").textContent);
+  let performance = parseFloat(document.getElementById("performance-value").textContent);
+  let tests = parseFloat(document.getElementById("tests-value").textContent);
+  let study = parseFloat(document.getElementById("study-value").textContent);
+
+  // Calculate percentages for bars
+  let performancePercent = (performance / 1000) * 100; 
+  let testsPercent = (tests / 30) * 100;               
+  let studyPercent = (study / 30) * 100;          
+
+  // Set progress fills
+  document.getElementById("accuracy-fill").style.width = accuracy + "%";
+  document.getElementById("performance-fill").style.width = performancePercent + "%";
+  document.getElementById("tests-fill").style.width = testsPercent + "%";
+  document.getElementById("study-fill").style.width = studyPercent + "%";
+
+  function showTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`.tab-btn[onclick="showTab('${tab}')"]`).classList.add('active');
+    document.getElementById(tab).classList.add('active');
+  }
+
+</script>
+    <section class="footer-section">
+        <%- include('../partials/footer') %>
+    </section>
+</body>
+</html>
